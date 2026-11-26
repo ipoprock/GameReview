@@ -4,13 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Magicalorbs Games | Official Play Store 1-Tap Review Hub</title>
-    <meta name="description" content="Support Magicalorbs games on Google Play! 1-Tap copy authentic 5-star reviews and help each game reach its review milestone.">
+    <meta name="description" content="Support Magicalorbs games on Google Play! 50 Reviews Target per game. 1-Tap copy authentic 5-star reviews and help us reach the goal.">
     <meta name="theme-color" content="#070913">
 
     <!-- Open Graph Meta Tags -->
     <meta property="og:type" content="website">
     <meta property="og:title" content="Support Magicalorbs Games on Google Play! ⭐⭐⭐⭐⭐">
-    <meta property="og:description" content="1-Tap Copy 5-Star review & Post on Google Play Store. Join our Community Milestone Goals!">
+    <meta property="og:description" content="Help each game reach its 50 Reviews Goal! 1-Tap Copy 5-Star review & Post on Google Play.">
     <meta property="og:site_name" content="Magicalorbs Review Hub">
     <meta property="og:image" content="https://img.youtube.com/vi/SD9OgWYFJWA/maxresdefault.jpg">
 
@@ -232,12 +232,16 @@
 
         <!-- Studio Header -->
         <header class="text-center mb-9">
+            <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-amber-500/15 border border-amber-500/30 text-amber-300 text-xs font-black uppercase tracking-wider mb-3">
+                <i class="fa-solid fa-bullseye text-amber-400"></i> Target: 50 Reviews Per Game 🎯
+            </div>
+
             <h1 class="text-2xl sm:text-4xl lg:text-5xl font-black tracking-tight text-white mb-2 leading-tight">
-                Rate Magicalorbs Games in <span class="orb-gradient-text">10 Seconds!</span> ⭐
+                Help Us Reach <span class="orb-gradient-text">50 Reviews</span> on Google Play! ⭐
             </h1>
 
             <p class="text-slate-300 text-sm sm:text-base max-w-2xl mx-auto leading-relaxed">
-                Zero typing needed! Har game ka apna <strong class="text-amber-300 font-bold">Review Target</strong> hai. Niche button dabate hi authentic review copy hoga aur seedha Play Store rating window khulegi. Bas <strong class="text-emerald-300 font-bold">5th Star</strong> daba kar <strong class="text-white font-bold">Paste &amp; Post</strong> kar dein!
+                Zero typing needed! Har game ka target <strong class="text-amber-300 font-bold">50 Reviews</strong> ka hai. Niche button dabate hi authentic review copy hoga aur seedha Play Store rating window khulegi. Bas <strong class="text-emerald-300 font-bold">5th Star</strong> daba kar <strong class="text-white font-bold">Paste &amp; Post</strong> kar dein!
             </p>
 
             <!-- 3-Step Play Store Quick Guide -->
@@ -260,7 +264,7 @@
             </div>
         </header>
 
-        <!-- Games Grid (With Individual Review Milestone Target & Real Play Store Stats) -->
+        <!-- Games Grid (Target 50 reviews per game: Pakad Dhakad 32, Screw Untwist 12, Arrow Puzzle 5) -->
         <main id="games-grid" class="grid grid-cols-1 lg:grid-cols-3 gap-6">
             <!-- Game cards are rendered dynamically via JavaScript -->
         </main>
@@ -372,10 +376,13 @@
     <script>
         document.getElementById('year').textContent = new Date().getFullYear();
 
-        // Milestone progression tiers (auto-levels up to next tier once hit)
-        const MILESTONE_TIERS = [50, 100, 250, 500, 1000, 1500, 2000, 3000, 5000, 10000];
+        // Target milestone tiers: starts at 50, then auto-levels up when reached!
+        const MILESTONE_TIERS = [50, 100, 250, 500, 1000, 2500];
 
-        // Games Data with Authentic Google Play Stats & Actual Player Feedback
+        // Games Data with User Specified Exact Stats:
+        // Pakad Dhakad: 32 / 50
+        // Screw Untwist : Animal Rescue: 12 / 50
+        // Arrow Puzzle : Snake Rescue: 5 / 50
         const GAMES = [
             {
                 id: 'g1',
@@ -384,12 +391,12 @@
                 category: 'Action • Multiplayer • Casual',
                 packageId: 'com.magicalorbs.pakaddhakad',
                 rating: '4.8',
-                ratingCount: '1,420+ ratings',
+                ratingCount: '32 ratings',
                 downloads: '10K+',
                 contentRating: 'Rated 3+',
                 badgeColor: 'from-amber-500 to-orange-600',
                 accentText: 'text-amber-400',
-                baseReviews: 1420,
+                baseReviews: 32, // User specified: 32
                 // HD Google Play App Icon
                 iconSvg: `
                     <svg viewBox="0 0 100 100" class="w-16 h-16 rounded-2xl shadow-xl overflow-hidden shrink-0" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -420,7 +427,7 @@
                         initial: 'R',
                         avatarBg: 'bg-amber-600',
                         stars: 5,
-                        date: 'Verified Player • Nov 2026',
+                        date: 'Verified Player',
                         helpful: '38 found helpful',
                         comment: 'Bahut hi mast multiplayer game hai! Doston ke sath laddu powerup use karke pakadne me full maza aata hai.'
                     },
@@ -429,7 +436,7 @@
                         initial: 'A',
                         avatarBg: 'bg-emerald-600',
                         stars: 5,
-                        date: 'Verified Player • Nov 2026',
+                        date: 'Verified Player',
                         helpful: '24 found helpful',
                         comment: 'Desi Indian village chase theme and super energetic gameplay! Zero lag on Android.'
                     }
@@ -448,17 +455,81 @@
             },
             {
                 id: 'g2',
+                title: 'Screw Untwist : Animal Rescue',
+                tagline: 'Mechanical Relaxing Puzzle',
+                category: 'Puzzle • Casual • Relaxing',
+                packageId: 'com.magicalorbs.screwuntwist',
+                rating: '4.8',
+                ratingCount: '12 ratings',
+                downloads: '5K+',
+                contentRating: 'Rated 3+',
+                badgeColor: 'from-indigo-500 to-purple-600',
+                accentText: 'text-indigo-400',
+                baseReviews: 12, // User specified: 12
+                iconSvg: `
+                    <svg viewBox="0 0 100 100" class="w-16 h-16 rounded-2xl shadow-xl overflow-hidden shrink-0" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <defs>
+                            <linearGradient id="su_bg" x1="0" y1="0" x2="100" y2="100" gradientUnits="userSpaceOnUse">
+                                <stop stop-color="#6366F1"/>
+                                <stop offset="50%" stop-color="#8B5CF6"/>
+                                <stop offset="100%" stop-color="#6D28D9"/>
+                            </linearGradient>
+                            <radialGradient id="su_shine" cx="30%" cy="20%" r="60%">
+                                <stop offset="0%" stop-color="#FFF" stop-opacity="0.35"/>
+                                <stop offset="100%" stop-color="#FFF" stop-opacity="0"/>
+                            </radialGradient>
+                        </defs>
+                        <rect width="100" height="100" rx="22" fill="url(#su_bg)"/>
+                        <rect width="100" height="100" rx="22" fill="url(#su_shine)"/>
+                        <circle cx="50" cy="50" r="22" stroke="#FFFFFF" stroke-width="7"/>
+                        <path d="M41 41L59 59M59 41L41 59" stroke="#FDE047" stroke-width="6" stroke-linecap="round"/>
+                    </svg>
+                `,
+                actualReviews: [
+                    {
+                        user: 'Sneha Roy',
+                        initial: 'S',
+                        avatarBg: 'bg-purple-600',
+                        stars: 5,
+                        date: 'Verified Player',
+                        helpful: '31 found helpful',
+                        comment: 'Rescuing animals by unscrewing bolts is super satisfying after a long day. Love the ASMR sounds!'
+                    },
+                    {
+                        user: 'Vikas Gupta',
+                        initial: 'V',
+                        avatarBg: 'bg-rose-600',
+                        stars: 5,
+                        date: 'Verified Player',
+                        helpful: '22 found helpful',
+                        comment: 'Very relaxing puzzle game. Levels are well-designed with zero lag. Highly recommended!'
+                    }
+                ],
+                presets: [
+                    { label: 'Super Satisfying 🔩', text: 'Super satisfying screw puzzle game! Rescuing the cute animals after clearing the bolts feels awesome.' },
+                    { label: 'Relaxing & Fun ❤️', text: 'Bahut hi relaxing aur fun game hai! Timepass ke liye best mechanical puzzle game hai.' },
+                    { label: 'Cute Theme ⭐', text: 'Great screw untwist mechanics and cute animal rescue theme. Smooth gameplay and nice levels!' }
+                ],
+                extraReviews: [
+                    'Really enjoyable screw pin puzzle! Makes you plan your moves carefully and feels super rewarding.',
+                    'Cute graphics and very satisfying unscrewing sound and animations. Love playing it daily!',
+                    'Mast puzzle game hai, ek baar start karo toh levels complete karne ka mann karta rehta hai.',
+                    'Well-designed levels with zero lag. One of the most relaxing puzzle games on my phone.'
+                ]
+            },
+            {
+                id: 'g3',
                 title: 'Arrow Puzzle : Snake Rescue',
                 tagline: 'Brain Teaser & Escape Puzzle',
                 category: 'Puzzle • Brain • Logic',
                 packageId: 'com.magicalorbs.arrowsnake',
                 rating: '4.9',
-                ratingCount: '980+ ratings',
+                ratingCount: '5 ratings',
                 downloads: '10K+',
                 contentRating: 'Rated 3+',
                 badgeColor: 'from-emerald-500 to-teal-600',
                 accentText: 'text-emerald-400',
-                baseReviews: 982,
+                baseReviews: 5, // User specified: 5
                 iconSvg: `
                     <svg viewBox="0 0 100 100" class="w-16 h-16 rounded-2xl shadow-xl overflow-hidden shrink-0" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <defs>
@@ -485,7 +556,7 @@
                         initial: 'P',
                         avatarBg: 'bg-teal-600',
                         stars: 5,
-                        date: 'Verified Player • Nov 2026',
+                        date: 'Verified Player',
                         helpful: '42 found helpful',
                         comment: 'Super addictive puzzle game! Each level makes you think, and untangling snakes feels so satisfying.'
                     },
@@ -494,7 +565,7 @@
                         initial: 'R',
                         avatarBg: 'bg-indigo-600',
                         stars: 5,
-                        date: 'Verified Player • Nov 2026',
+                        date: 'Verified Player',
                         helpful: '19 found helpful',
                         comment: 'Dimag chalane wala mast game! Clean graphics, very smooth tap controls, perfect timepass.'
                     }
@@ -510,70 +581,6 @@
                     'Dimag chalane wala mast game hai! Har level naya challenge deta hai.',
                     'Super satisfying puzzle game! Untangling the snakes in the right order is really fun.'
                 ]
-            },
-            {
-                id: 'g3',
-                title: 'Screw Untwist : Animal Rescue',
-                tagline: 'Mechanical Relaxing Puzzle',
-                category: 'Puzzle • Casual • Relaxing',
-                packageId: 'com.magicalorbs.screwuntwist',
-                rating: '4.8',
-                ratingCount: '890+ ratings',
-                downloads: '5K+',
-                contentRating: 'Rated 3+',
-                badgeColor: 'from-indigo-500 to-purple-600',
-                accentText: 'text-indigo-400',
-                baseReviews: 465,
-                iconSvg: `
-                    <svg viewBox="0 0 100 100" class="w-16 h-16 rounded-2xl shadow-xl overflow-hidden shrink-0" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <defs>
-                            <linearGradient id="su_bg" x1="0" y1="0" x2="100" y2="100" gradientUnits="userSpaceOnUse">
-                                <stop stop-color="#6366F1"/>
-                                <stop offset="50%" stop-color="#8B5CF6"/>
-                                <stop offset="100%" stop-color="#6D28D9"/>
-                            </linearGradient>
-                            <radialGradient id="su_shine" cx="30%" cy="20%" r="60%">
-                                <stop offset="0%" stop-color="#FFF" stop-opacity="0.35"/>
-                                <stop offset="100%" stop-color="#FFF" stop-opacity="0"/>
-                            </radialGradient>
-                        </defs>
-                        <rect width="100" height="100" rx="22" fill="url(#su_bg)"/>
-                        <rect width="100" height="100" rx="22" fill="url(#su_shine)"/>
-                        <circle cx="50" cy="50" r="22" stroke="#FFFFFF" stroke-width="7"/>
-                        <path d="M41 41L59 59M59 41L41 59" stroke="#FDE047" stroke-width="6" stroke-linecap="round"/>
-                    </svg>
-                `,
-                actualReviews: [
-                    {
-                        user: 'Sneha Roy',
-                        initial: 'S',
-                        avatarBg: 'bg-purple-600',
-                        stars: 5,
-                        date: 'Verified Player • Nov 2026',
-                        helpful: '31 found helpful',
-                        comment: 'Rescuing animals by unscrewing bolts is super satisfying after a long day. Love the ASMR sounds!'
-                    },
-                    {
-                        user: 'Vikas Gupta',
-                        initial: 'V',
-                        avatarBg: 'bg-rose-600',
-                        stars: 5,
-                        date: 'Verified Player • Nov 2026',
-                        helpful: '22 found helpful',
-                        comment: 'Very relaxing puzzle game. Levels are well-designed with zero lag. Highly recommended!'
-                    }
-                ],
-                presets: [
-                    { label: 'Super Satisfying 🔩', text: 'Super satisfying screw puzzle game! Rescuing the cute animals after clearing the bolts feels awesome.' },
-                    { label: 'Relaxing & Fun ❤️', text: 'Bahut hi relaxing aur fun game hai! Timepass ke liye best mechanical puzzle game hai.' },
-                    { label: 'Cute Theme ⭐', text: 'Great screw untwist mechanics and cute animal rescue theme. Smooth gameplay and nice levels!' }
-                ],
-                extraReviews: [
-                    'Really enjoyable screw pin puzzle! Makes you plan your moves carefully and feels super rewarding.',
-                    'Cute graphics and very satisfying unscrewing sound and animations. Love playing it daily!',
-                    'Mast puzzle game hai, ek baar start karo toh levels complete karne ka mann karta rehta hai.',
-                    'Well-designed levels with zero lag. One of the most relaxing puzzle games on my phone.'
-                ]
             }
         ];
 
@@ -586,17 +593,17 @@
 
         // Milestone calculation function for each game
         function getGameMilestone(game) {
-            let added = parseInt(localStorage.getItem(`magicalorbs_added_${game.id}`) || '0', 10);
+            let added = parseInt(localStorage.getItem(`magicalorbs_target50_${game.id}`) || '0', 10);
             let current = game.baseReviews + added;
-            let target = MILESTONE_TIERS.find(t => t > current) || (Math.ceil((current + 1) / 500) * 500);
+            let target = MILESTONE_TIERS.find(t => t > current) || (Math.ceil((current + 1) / 50) * 50);
             let remaining = Math.max(0, target - current);
             let percentage = Math.min(100, Math.max(5, (current / target) * 100));
             return { current, target, remaining, percentage };
         }
 
         function incrementGameMilestone(gameId) {
-            let added = parseInt(localStorage.getItem(`magicalorbs_added_${gameId}`) || '0', 10);
-            localStorage.setItem(`magicalorbs_added_${gameId}`, (added + 1).toString());
+            let added = parseInt(localStorage.getItem(`magicalorbs_target50_${gameId}`) || '0', 10);
+            localStorage.setItem(`magicalorbs_target50_${gameId}`, (added + 1).toString());
         }
 
         // Initialize state
@@ -677,22 +684,25 @@
                                 ` : ''}
                             </div>
 
-                            <!-- Individual Game Review Milestone Target Progress Bar -->
-                            <div class="mb-3.5 p-3 rounded-2xl bg-gradient-to-r from-slate-950/90 to-indigo-950/60 border border-indigo-500/30">
+                            <!-- 50 Reviews Milestone Tracker Progress Bar -->
+                            <div class="mb-3.5 p-3 rounded-2xl bg-gradient-to-r from-slate-950/95 to-indigo-950/70 border border-indigo-500/40">
                                 <div class="flex items-center justify-between text-xs mb-1.5">
-                                    <span class="font-extrabold text-slate-300 flex items-center gap-1">
-                                        <i class="fa-solid fa-bullseye text-indigo-400"></i> Review Milestone
+                                    <span class="font-extrabold text-slate-200 flex items-center gap-1.5">
+                                        <i class="fa-solid fa-bullseye text-amber-400"></i>
+                                        <span>Target: ${milestone.target} Reviews</span>
                                     </span>
-                                    <span class="font-bold text-amber-300">
-                                        ${milestone.current} / ${milestone.target} <span class="text-slate-400 font-normal">(${milestone.remaining} Left!)</span>
+                                    <span class="font-black text-amber-300 text-xs">
+                                        ${milestone.current} / ${milestone.target} <span class="text-emerald-400 font-bold ml-1">(${milestone.remaining} Left!)</span>
                                     </span>
                                 </div>
-                                <div class="w-full bg-slate-900 rounded-full h-2.5 border border-slate-800 overflow-hidden">
-                                    <div class="h-full rounded-full bg-gradient-to-r from-emerald-400 via-teal-300 to-indigo-400 progress-bar-fill" style="width: ${milestone.percentage}%;"></div>
+                                <div class="w-full bg-slate-900 rounded-full h-3 border border-slate-800 overflow-hidden relative">
+                                    <div class="h-full rounded-full bg-gradient-to-r from-emerald-400 via-teal-300 to-indigo-400 progress-bar-fill relative" style="width: ${milestone.percentage}%;">
+                                        <div class="absolute inset-0 bg-white/20 animate-pulse"></div>
+                                    </div>
                                 </div>
                                 <div class="flex items-center justify-between text-[10px] text-slate-400 mt-1.5 font-medium">
-                                    <span>${milestone.percentage.toFixed(1)}% Goal Completed</span>
-                                    <span class="text-indigo-300 font-bold">Auto-levels up to next tier 🚀</span>
+                                    <span>${milestone.percentage.toFixed(0)}% Completed</span>
+                                    <span class="text-indigo-300 font-bold">Auto-levels up to 100 once reached 🚀</span>
                                 </div>
                             </div>
 
@@ -703,7 +713,7 @@
                                         <span>${game.rating}</span>
                                         <i class="fa-solid fa-star text-[10px]"></i>
                                     </div>
-                                    <p class="text-[9px] text-slate-400 font-medium">${game.ratingCount}</p>
+                                    <p class="text-[9px] text-slate-400 font-medium">${milestone.current} reviews</p>
                                 </div>
                                 <div class="border-x border-slate-800/80">
                                     <div class="text-xs font-black text-slate-100">${game.downloads}</div>
@@ -1000,7 +1010,7 @@
 
         function shareOnWhatsApp() {
             const currentUrl = window.location.href;
-            const shareText = `Hey! Support Indian game studio *Magicalorbs* (Creators of Pakad Dhakad). Join our game review milestones — 1-Tap copy & rate 5 stars on Google Play: ${currentUrl}`;
+            const shareText = `Hey! Support Indian game studio *Magicalorbs* (Creators of Pakad Dhakad). Join our 50 Reviews Target — 1-Tap copy & rate 5 stars on Google Play: ${currentUrl}`;
             const whatsappUrl = `https://api.whatsapp.com/send?text=${encodeURIComponent(shareText)}`;
             window.open(whatsappUrl, '_blank');
         }
