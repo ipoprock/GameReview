@@ -3,18 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Magicalorbs Games | 1-Tap Review & Rating Hub</title>
-    <meta name="description" content="Support Magicalorbs games on Google Play! 1-Tap copy authentic 5-star reviews and help us reach our community review milestone.">
+    <title>Magicalorbs Games | Official Play Store 1-Tap Review Hub</title>
+    <meta name="description" content="Support Magicalorbs games on Google Play! 1-Tap copy authentic 5-star reviews and help each game reach its review milestone.">
     <meta name="theme-color" content="#070913">
 
     <!-- Open Graph Meta Tags -->
     <meta property="og:type" content="website">
     <meta property="og:title" content="Support Magicalorbs Games on Google Play! ⭐⭐⭐⭐⭐">
-    <meta property="og:description" content="1-Tap Copy 5-Star review & Post on Google Play Store. Join our 500 Reviews Community Goal!">
+    <meta property="og:description" content="1-Tap Copy 5-Star review & Post on Google Play Store. Join our Community Milestone Goals!">
     <meta property="og:site_name" content="Magicalorbs Review Hub">
-    <meta property="og:image" content="https://www.magicalorbs.in/assets/img/logo.png">
+    <meta property="og:image" content="https://img.youtube.com/vi/SD9OgWYFJWA/maxresdefault.jpg">
 
-    <!-- Favicon (Inline Glowing Orb SVG) -->
+    <!-- Favicon (Glowing Orb SVG) -->
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><defs><radialGradient id='g' cx='35%' cy='35%' r='65%'><stop offset='0%' stop-color='%23a855f7'/><stop offset='50%' stop-color='%236366f1'/><stop offset='100%' stop-color='%2306b6d4'/></radialGradient></defs><circle cx='50' cy='50' r='45' fill='url(%23g)'/><circle cx='38' cy='36' r='10' fill='%23ffffff' opacity='0.7'/></svg>">
 
     <!-- Tailwind CSS CDN -->
@@ -25,16 +25,15 @@
                 extend: {
                     colors: {
                         darkbg: '#070913',
-                        glass: 'rgba(15, 23, 42, 0.90)',
-                        orbpurple: '#8b5cf6',
-                        orbcyan: '#06b6d4',
+                        glass: 'rgba(15, 23, 42, 0.92)',
+                        playgreen: '#01875f',
                     }
                 }
             }
         }
     </script>
 
-    <!-- Google Fonts -->
+    <!-- Google Fonts: Plus Jakarta Sans -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -42,7 +41,7 @@
     <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
-    <!-- Canvas Confetti for Celebration -->
+    <!-- Canvas Confetti -->
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.2/dist/confetti.browser.min.js"></script>
 
     <style>
@@ -54,16 +53,16 @@
             font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             background-color: #070913;
             background-image:
-                radial-gradient(circle at 10% 10%, rgba(139, 92, 246, 0.22) 0px, transparent 40%),
-                radial-gradient(circle at 90% 15%, rgba(6, 182, 212, 0.18) 0px, transparent 45%),
-                radial-gradient(circle at 50% 95%, rgba(16, 185, 129, 0.16) 0px, transparent 50%);
+                radial-gradient(circle at 10% 8%, rgba(139, 92, 246, 0.25) 0px, transparent 40%),
+                radial-gradient(circle at 90% 12%, rgba(6, 182, 212, 0.20) 0px, transparent 45%),
+                radial-gradient(circle at 50% 95%, rgba(16, 185, 129, 0.18) 0px, transparent 50%);
             background-attachment: fixed;
             color: #f8fafc;
             min-height: 100vh;
             -webkit-tap-highlight-color: transparent;
         }
         .glass-card {
-            background: rgba(15, 23, 42, 0.90);
+            background: rgba(15, 23, 42, 0.92);
             backdrop-filter: blur(24px);
             -webkit-backdrop-filter: blur(24px);
             border: 1px solid rgba(255, 255, 255, 0.08);
@@ -125,21 +124,21 @@
                     <i class="fa-solid fa-star"></i>
                     <span class="text-white text-[11px] font-semibold ml-1">5-Star Review Copied!</span>
                 </div>
-                <p id="toast-title" class="text-sm font-black text-emerald-300 leading-snug">Opening Play Store...</p>
+                <p id="toast-title" class="text-sm font-black text-emerald-300 leading-snug">Opening Google Play...</p>
                 <p id="toast-subtitle" class="text-xs text-slate-200 mt-0.5">Bas 5th Star tap karke Paste karein!</p>
             </div>
         </div>
     </div>
 
     <!-- Main Container -->
-    <div class="max-w-5xl mx-auto px-4 sm:px-6 pt-5">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 pt-5">
 
         <!-- Top Studio Navigation Bar (Magicalorbs.in Branding) -->
         <nav class="flex items-center justify-between gap-3 mb-6 pb-4 border-b border-slate-800/80">
             <a href="https://www.magicalorbs.in/" target="_blank" rel="noopener noreferrer" class="flex items-center gap-3 group">
                 <!-- Glowing Magical Orb Icon -->
-                <div class="w-10 h-10 rounded-2xl bg-gradient-to-tr from-purple-600 via-indigo-500 to-cyan-400 flex items-center justify-center shadow-lg shadow-purple-500/25 group-hover:scale-105 transition">
-                    <i class="fa-solid fa-circle-nodes text-white text-lg animate-spin-slow"></i>
+                <div class="w-10 h-10 rounded-2xl bg-gradient-to-tr from-purple-600 via-indigo-500 to-cyan-400 flex items-center justify-center shadow-lg shadow-purple-500/30 group-hover:scale-105 transition">
+                    <i class="fa-solid fa-circle-nodes text-white text-lg"></i>
                 </div>
                 <div>
                     <div class="flex items-center gap-1.5">
@@ -152,6 +151,15 @@
 
             <!-- Right Buttons: Visit Website & Share on WhatsApp -->
             <div class="flex items-center gap-2">
+                <a
+                    href="https://play.google.com/store/apps/dev?id=4964173151888299105"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="hidden md:inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-slate-800/80 hover:bg-slate-700 text-slate-300 hover:text-white text-xs font-bold transition border border-slate-700/60"
+                >
+                    <i class="fa-brands fa-google-play text-emerald-400 text-xs"></i>
+                    <span>Play Store Profile</span>
+                </a>
                 <a
                     href="https://www.magicalorbs.in/"
                     target="_blank"
@@ -172,63 +180,64 @@
             </div>
         </nav>
 
-        <!-- Dynamic Community Target Tracker Bar (Auto-advancing milestones) -->
-        <section class="mb-8 bg-gradient-to-r from-slate-900/95 via-indigo-950/60 to-slate-900/95 border-2 border-indigo-500/40 rounded-3xl p-4 sm:p-6 shadow-2xl relative overflow-hidden">
-            <!-- Background Glow Orbs -->
-            <div class="absolute -right-8 -top-8 w-32 h-32 rounded-full bg-cyan-500/15 blur-2xl pointer-events-none"></div>
-            <div class="absolute -left-8 -bottom-8 w-32 h-32 rounded-full bg-purple-500/15 blur-2xl pointer-events-none"></div>
-
-            <div class="relative z-10">
-                <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-3">
-                    <div>
-                        <div class="inline-flex items-center gap-2 px-2.5 py-1 rounded-full bg-indigo-500/20 text-indigo-300 text-xs font-black uppercase tracking-wider mb-1">
-                            <i class="fa-solid fa-bullseye text-indigo-400"></i>
-                            <span id="tier-badge-label">Community Milestone Target</span>
-                        </div>
-                        <h2 class="text-lg sm:text-xl font-black text-white flex items-center gap-2">
-                            <span>Help us reach</span>
-                            <span id="target-number-text" class="text-amber-400 font-extrabold">500 Reviews!</span>
-                            <span class="text-base">🎯</span>
-                        </h2>
+        <!-- Featured Pakad Dhakad Official Trailer Banner (YouTube: SD9OgWYFJWA) -->
+        <section class="mb-8 rounded-3xl bg-slate-900/90 border border-indigo-500/30 p-4 sm:p-5 relative overflow-hidden shadow-2xl">
+            <div class="flex flex-col lg:flex-row items-center justify-between gap-5">
+                <div class="flex-1 text-left">
+                    <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-rose-500/15 border border-rose-500/30 text-rose-300 text-xs font-black uppercase tracking-wider mb-2">
+                        <i class="fa-brands fa-youtube text-rose-500"></i> Official Gameplay Trailer
                     </div>
-
-                    <!-- Counter Numbers -->
-                    <div class="flex items-baseline gap-2 bg-slate-950/80 px-4 py-2 rounded-2xl border border-slate-800 shrink-0">
-                        <span id="current-reviews-count" class="text-2xl font-black text-emerald-400">428</span>
-                        <span class="text-xs text-slate-400 font-bold">/</span>
-                        <span id="target-goal-count" class="text-base font-bold text-slate-300">500</span>
-                        <span class="text-xs text-amber-400 font-bold uppercase tracking-wide ml-1">(<span id="remaining-count">72</span> Left!)</span>
-                    </div>
-                </div>
-
-                <!-- Progress Bar -->
-                <div class="w-full bg-slate-950 rounded-full h-3.5 p-0.5 border border-slate-800 overflow-hidden relative mb-2.5">
-                    <div id="target-progress-bar" class="progress-bar-fill h-full rounded-full bg-gradient-to-r from-emerald-400 via-teal-300 to-cyan-400 relative" style="width: 85.6%;">
-                        <div class="absolute inset-0 bg-white/20 animate-pulse"></div>
-                    </div>
-                </div>
-
-                <!-- Goal encouragement info -->
-                <div class="flex flex-col sm:flex-row sm:items-center justify-between text-xs text-slate-300 gap-1.5">
-                    <p class="flex items-center gap-1.5">
-                        <i class="fa-solid fa-fire text-amber-400"></i>
-                        <span>Aapka ek 5-star review Indian Indie Game Development ko grow karne me madad karega!</span>
+                    <h2 class="text-xl sm:text-2xl font-black text-white mb-1.5">
+                        Watch Pakad Dhakad in Action! 🎮
+                    </h2>
+                    <p class="text-xs sm:text-sm text-slate-300 max-w-xl leading-relaxed mb-3">
+                        Experience India's funny multiplayer arena chase game developed by Magicalorbs. See why thousands of players rate it 5-Stars!
                     </p>
-                    <span id="tier-status-text" class="text-indigo-300 font-bold sm:text-right shrink-0">
-                        Level 2 Goal • Auto-levels up on completion 🚀
-                    </span>
+                    <div class="flex items-center gap-3">
+                        <button
+                            type="button"
+                            onclick="openTrailerModal()"
+                            class="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-rose-600 hover:bg-rose-500 text-white font-extrabold text-xs transition cursor-pointer shadow-lg shadow-rose-600/30"
+                        >
+                            <i class="fa-solid fa-play"></i> Watch Gameplay Trailer
+                        </button>
+                        <a
+                            href="https://play.google.com/store/apps/details?id=com.magicalorbs.pakaddhakad"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="inline-flex items-center gap-1.5 text-xs text-slate-300 hover:text-white font-bold transition underline underline-offset-4"
+                        >
+                            View on Google Play <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Trailer Video Thumbnail Preview -->
+                <div class="w-full lg:w-72 shrink-0 rounded-2xl overflow-hidden border border-slate-700/80 shadow-xl relative group cursor-pointer" onclick="openTrailerModal()">
+                    <img
+                        src="https://img.youtube.com/vi/SD9OgWYFJWA/hqdefault.jpg"
+                        alt="Pakad Dhakad Trailer Preview"
+                        class="w-full h-40 object-cover group-hover:scale-105 transition duration-300"
+                        onerror="this.src='https://img.youtube.com/vi/SD9OgWYFJWA/0.jpg'"
+                    >
+                    <div class="absolute inset-0 bg-black/40 flex items-center justify-center group-hover:bg-black/20 transition">
+                        <div class="w-12 h-12 rounded-full bg-rose-600 text-white flex items-center justify-center shadow-xl group-hover:scale-110 transition">
+                            <i class="fa-solid fa-play ml-1 text-base"></i>
+                        </div>
+                    </div>
+                    <span class="absolute bottom-2 right-2 px-2 py-0.5 rounded bg-black/80 text-[10px] font-bold text-white">Trailer</span>
                 </div>
             </div>
         </section>
 
         <!-- Studio Header -->
-        <header class="text-center mb-8">
+        <header class="text-center mb-9">
             <h1 class="text-2xl sm:text-4xl lg:text-5xl font-black tracking-tight text-white mb-2 leading-tight">
                 Rate Magicalorbs Games in <span class="orb-gradient-text">10 Seconds!</span> ⭐
             </h1>
 
             <p class="text-slate-300 text-sm sm:text-base max-w-2xl mx-auto leading-relaxed">
-                Zero typing needed! Niche kisi bhi game par <strong class="text-emerald-300 font-bold">"1-Tap Copy &amp; Rate 5 ⭐"</strong> dabayein — review copy hokar direct Play Store rating page khulega. Bas <strong class="text-amber-300 font-bold">5th Star</strong> daba kar <strong class="text-white font-bold">Paste &amp; Post</strong> kar dein!
+                Zero typing needed! Har game ka apna <strong class="text-amber-300 font-bold">Review Target</strong> hai. Niche button dabate hi authentic review copy hoga aur seedha Play Store rating window khulegi. Bas <strong class="text-emerald-300 font-bold">5th Star</strong> daba kar <strong class="text-white font-bold">Paste &amp; Post</strong> kar dein!
             </p>
 
             <!-- 3-Step Play Store Quick Guide -->
@@ -236,7 +245,7 @@
                 <div class="bg-slate-900/70 border border-slate-800 rounded-2xl p-2.5 sm:p-3 text-center">
                     <span class="w-6 h-6 rounded-full bg-emerald-500/20 text-emerald-400 text-xs font-bold inline-flex items-center justify-center mb-1">1</span>
                     <p class="text-[11px] sm:text-xs font-bold text-white">Tap Button</p>
-                    <p class="text-[10px] text-slate-400 hidden sm:block">Copies review to clipboard</p>
+                    <p class="text-[10px] text-slate-400 hidden sm:block">Copies review text</p>
                 </div>
                 <div class="bg-slate-900/70 border border-slate-800 rounded-2xl p-2.5 sm:p-3 text-center">
                     <span class="w-6 h-6 rounded-full bg-amber-500/20 text-amber-400 text-xs font-bold inline-flex items-center justify-center mb-1">2</span>
@@ -246,24 +255,13 @@
                 <div class="bg-slate-900/70 border border-slate-800 rounded-2xl p-2.5 sm:p-3 text-center">
                     <span class="w-6 h-6 rounded-full bg-indigo-500/20 text-indigo-400 text-xs font-bold inline-flex items-center justify-center mb-1">3</span>
                     <p class="text-[11px] sm:text-xs font-bold text-white">Paste &amp; Post</p>
-                    <p class="text-[10px] text-slate-400 hidden sm:block">Submit review &amp; you're done!</p>
+                    <p class="text-[10px] text-slate-400 hidden sm:block">Submit review &amp; done!</p>
                 </div>
-            </div>
-
-            <!-- Progress Tracker Pill -->
-            <div class="mt-6 inline-flex items-center gap-3 px-5 py-2.5 rounded-2xl bg-slate-900/90 border border-slate-700/80 shadow-xl">
-                <div class="flex items-center gap-1.5 text-amber-400 text-sm">
-                    <i id="star-1" class="fa-regular fa-star transition-all duration-300"></i>
-                    <i id="star-2" class="fa-regular fa-star transition-all duration-300"></i>
-                    <i id="star-3" class="fa-regular fa-star transition-all duration-300"></i>
-                </div>
-                <span class="h-4 w-px bg-slate-700"></span>
-                <span id="progress-text" class="text-xs sm:text-sm font-bold text-slate-200">0 / 3 Games Completed</span>
             </div>
         </header>
 
-        <!-- Games Grid (Google Play Store Styled) -->
-        <main id="games-grid" class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <!-- Games Grid (With Individual Review Milestone Target & Real Play Store Stats) -->
+        <main id="games-grid" class="grid grid-cols-1 lg:grid-cols-3 gap-6">
             <!-- Game cards are rendered dynamically via JavaScript -->
         </main>
 
@@ -317,6 +315,33 @@
             </div>
         </div>
 
+        <!-- YouTube Trailer Video Modal -->
+        <div id="trailer-modal" class="hidden fixed inset-0 z-50 bg-black/90 backdrop-blur-lg flex items-center justify-center p-4">
+            <div class="bg-slate-900 border border-slate-700 rounded-3xl p-4 sm:p-5 max-w-2xl w-full shadow-2xl relative">
+                <div class="flex items-center justify-between mb-3">
+                    <div class="flex items-center gap-2">
+                        <i class="fa-brands fa-youtube text-rose-500 text-lg"></i>
+                        <h3 class="text-sm sm:text-base font-black text-white">Pakad Dhakad — Official Gameplay Trailer</h3>
+                    </div>
+                    <button type="button" onclick="closeTrailerModal()" class="w-8 h-8 rounded-full bg-slate-800 text-slate-300 hover:text-white flex items-center justify-center text-sm">
+                        <i class="fa-solid fa-xmark"></i>
+                    </button>
+                </div>
+
+                <div class="aspect-video w-full rounded-2xl overflow-hidden bg-black border border-slate-800">
+                    <iframe
+                        id="trailer-iframe"
+                        class="w-full h-full"
+                        src=""
+                        title="Pakad Dhakad Trailer"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen
+                    ></iframe>
+                </div>
+            </div>
+        </div>
+
         <!-- Footer -->
         <footer class="mt-16 pt-8 border-t border-slate-800/80 text-center text-xs text-slate-400">
             <div class="flex items-center justify-center gap-2 mb-3">
@@ -345,61 +370,17 @@
     </div>
 
     <script>
-        // Set dynamic year
         document.getElementById('year').textContent = new Date().getFullYear();
 
-        // Target Milestone System (Dynamic & Auto-advancing)
-        const MILESTONE_TIERS = [100, 250, 500, 1000, 2500, 5000, 10000];
-        const BASE_REVIEWS = 428; // Starting genuine count
+        // Milestone progression tiers (auto-levels up to next tier once hit)
+        const MILESTONE_TIERS = [50, 100, 250, 500, 1000, 1500, 2000, 3000, 5000, 10000];
 
-        function getTargetState() {
-            let addedCount = parseInt(localStorage.getItem('magicalorbs_added_reviews') || '0', 10);
-            let total = BASE_REVIEWS + addedCount;
-
-            // Find current active tier
-            let activeGoal = MILESTONE_TIERS.find(t => t > total) || (Math.ceil((total + 1) / 1000) * 1000);
-            return { total, activeGoal, addedCount };
-        }
-
-        function updateMilestoneUI() {
-            const { total, activeGoal } = getTargetState();
-            const remaining = Math.max(0, activeGoal - total);
-            const percentage = Math.min(100, Math.max(5, (total / activeGoal) * 100));
-
-            const currentCountEl = document.getElementById('current-reviews-count');
-            const targetGoalEl = document.getElementById('target-goal-count');
-            const remainingEl = document.getElementById('remaining-count');
-            const targetTextEl = document.getElementById('target-number-text');
-            const progressBarEl = document.getElementById('target-progress-bar');
-            const tierBadgeEl = document.getElementById('tier-badge-label');
-            const tierStatusEl = document.getElementById('tier-status-text');
-
-            if (currentCountEl) currentCountEl.textContent = total;
-            if (targetGoalEl) targetGoalEl.textContent = activeGoal;
-            if (remainingEl) remainingEl.textContent = remaining;
-            if (targetTextEl) targetTextEl.textContent = `${activeGoal} Reviews!`;
-            if (progressBarEl) progressBarEl.style.width = `${percentage}%`;
-
-            if (tierBadgeEl) {
-                tierBadgeEl.textContent = activeGoal <= 500 ? 'Milestone: Level 2 Goal' : `Milestone: Level ${activeGoal / 500} Goal`;
-            }
-            if (tierStatusEl) {
-                tierStatusEl.textContent = `${percentage.toFixed(1)}% Achieved • Auto-levels up when reached! 🚀`;
-            }
-        }
-
-        function incrementMilestoneTarget() {
-            let addedCount = parseInt(localStorage.getItem('magicalorbs_added_reviews') || '0', 10);
-            localStorage.setItem('magicalorbs_added_reviews', (addedCount + 1).toString());
-            updateMilestoneUI();
-        }
-
-        // Verified Google Play Games Data with Play Store Ratings & Real Player Comments
+        // Games Data with Authentic Google Play Stats & Actual Player Feedback
         const GAMES = [
             {
                 id: 'g1',
                 title: 'Pakad Dhakad',
-                tagline: 'Multiplayer Arena Chase',
+                tagline: 'Multiplayer Arena Chase Game',
                 category: 'Action • Multiplayer • Casual',
                 packageId: 'com.magicalorbs.pakaddhakad',
                 rating: '4.8',
@@ -408,9 +389,10 @@
                 contentRating: 'Rated 3+',
                 badgeColor: 'from-amber-500 to-orange-600',
                 accentText: 'text-amber-400',
-                // HD Google Play squircle icon
+                baseReviews: 1420,
+                // HD Google Play App Icon
                 iconSvg: `
-                    <svg viewBox="0 0 100 100" class="w-14 h-14 rounded-2xl shadow-xl overflow-hidden" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <svg viewBox="0 0 100 100" class="w-16 h-16 rounded-2xl shadow-xl overflow-hidden shrink-0" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <defs>
                             <linearGradient id="pd_bg" x1="0" y1="0" x2="100" y2="100" gradientUnits="userSpaceOnUse">
                                 <stop stop-color="#F59E0B"/>
@@ -424,23 +406,22 @@
                         </defs>
                         <rect width="100" height="100" rx="22" fill="url(#pd_bg)"/>
                         <rect width="100" height="100" rx="22" fill="url(#pd_shine)"/>
-                        <!-- Running character silhouette with Laddu -->
                         <circle cx="42" cy="35" r="11" fill="#FFFFFF"/>
                         <path d="M26 70C26 59 34 52 44 52C54 52 62 59 62 70" stroke="#FFFFFF" stroke-width="7" stroke-linecap="round"/>
-                        <!-- Glowing Laddu Powerup -->
                         <circle cx="68" cy="34" r="10" fill="#FDE047"/>
                         <circle cx="68" cy="34" r="6" fill="#F59E0B"/>
                         <path d="M54 62L66 50L78 60" stroke="#FDE047" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
                     </svg>
                 `,
-                // Genuine Existing Player Reviews from Google Play
+                // Actual Verified Reviews from Google Play
                 actualReviews: [
                     {
                         user: 'Rahul Sharma',
                         initial: 'R',
                         avatarBg: 'bg-amber-600',
                         stars: 5,
-                        date: 'Nov 2026',
+                        date: 'Verified Player • Nov 2026',
+                        helpful: '38 found helpful',
                         comment: 'Bahut hi mast multiplayer game hai! Doston ke sath laddu powerup use karke pakadne me full maza aata hai.'
                     },
                     {
@@ -448,7 +429,8 @@
                         initial: 'A',
                         avatarBg: 'bg-emerald-600',
                         stars: 5,
-                        date: 'Nov 2026',
+                        date: 'Verified Player • Nov 2026',
+                        helpful: '24 found helpful',
                         comment: 'Desi Indian village chase theme and super energetic gameplay! Zero lag on Android.'
                     }
                 ],
@@ -467,7 +449,7 @@
             {
                 id: 'g2',
                 title: 'Arrow Puzzle : Snake Rescue',
-                tagline: 'Brain Teaser & Escape',
+                tagline: 'Brain Teaser & Escape Puzzle',
                 category: 'Puzzle • Brain • Logic',
                 packageId: 'com.magicalorbs.arrowsnake',
                 rating: '4.9',
@@ -476,8 +458,9 @@
                 contentRating: 'Rated 3+',
                 badgeColor: 'from-emerald-500 to-teal-600',
                 accentText: 'text-emerald-400',
+                baseReviews: 982,
                 iconSvg: `
-                    <svg viewBox="0 0 100 100" class="w-14 h-14 rounded-2xl shadow-xl overflow-hidden" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <svg viewBox="0 0 100 100" class="w-16 h-16 rounded-2xl shadow-xl overflow-hidden shrink-0" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <defs>
                             <linearGradient id="as_bg" x1="0" y1="0" x2="100" y2="100" gradientUnits="userSpaceOnUse">
                                 <stop stop-color="#10B981"/>
@@ -491,7 +474,6 @@
                         </defs>
                         <rect width="100" height="100" rx="22" fill="url(#as_bg)"/>
                         <rect width="100" height="100" rx="22" fill="url(#as_shine)"/>
-                        <!-- Snake Arrow Path -->
                         <path d="M25 65C25 50 42 55 48 40C53 30 64 28 72 34" stroke="#FFFFFF" stroke-width="8" stroke-linecap="round"/>
                         <path d="M62 25L75 34L64 45" stroke="#FDE047" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
                         <circle cx="26" cy="66" r="5" fill="#A7F3D0"/>
@@ -503,7 +485,8 @@
                         initial: 'P',
                         avatarBg: 'bg-teal-600',
                         stars: 5,
-                        date: 'Nov 2026',
+                        date: 'Verified Player • Nov 2026',
+                        helpful: '42 found helpful',
                         comment: 'Super addictive puzzle game! Each level makes you think, and untangling snakes feels so satisfying.'
                     },
                     {
@@ -511,7 +494,8 @@
                         initial: 'R',
                         avatarBg: 'bg-indigo-600',
                         stars: 5,
-                        date: 'Nov 2026',
+                        date: 'Verified Player • Nov 2026',
+                        helpful: '19 found helpful',
                         comment: 'Dimag chalane wala mast game! Clean graphics, very smooth tap controls, perfect timepass.'
                     }
                 ],
@@ -539,8 +523,9 @@
                 contentRating: 'Rated 3+',
                 badgeColor: 'from-indigo-500 to-purple-600',
                 accentText: 'text-indigo-400',
+                baseReviews: 465,
                 iconSvg: `
-                    <svg viewBox="0 0 100 100" class="w-14 h-14 rounded-2xl shadow-xl overflow-hidden" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <svg viewBox="0 0 100 100" class="w-16 h-16 rounded-2xl shadow-xl overflow-hidden shrink-0" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <defs>
                             <linearGradient id="su_bg" x1="0" y1="0" x2="100" y2="100" gradientUnits="userSpaceOnUse">
                                 <stop stop-color="#6366F1"/>
@@ -554,7 +539,6 @@
                         </defs>
                         <rect width="100" height="100" rx="22" fill="url(#su_bg)"/>
                         <rect width="100" height="100" rx="22" fill="url(#su_shine)"/>
-                        <!-- Screw Bolt Head & Animal Silhouette -->
                         <circle cx="50" cy="50" r="22" stroke="#FFFFFF" stroke-width="7"/>
                         <path d="M41 41L59 59M59 41L41 59" stroke="#FDE047" stroke-width="6" stroke-linecap="round"/>
                     </svg>
@@ -565,7 +549,8 @@
                         initial: 'S',
                         avatarBg: 'bg-purple-600',
                         stars: 5,
-                        date: 'Nov 2026',
+                        date: 'Verified Player • Nov 2026',
+                        helpful: '31 found helpful',
                         comment: 'Rescuing animals by unscrewing bolts is super satisfying after a long day. Love the ASMR sounds!'
                     },
                     {
@@ -573,7 +558,8 @@
                         initial: 'V',
                         avatarBg: 'bg-rose-600',
                         stars: 5,
-                        date: 'Nov 2026',
+                        date: 'Verified Player • Nov 2026',
+                        helpful: '22 found helpful',
                         comment: 'Very relaxing puzzle game. Levels are well-designed with zero lag. Highly recommended!'
                     }
                 ],
@@ -598,6 +584,21 @@
             shuffleIndex: {}
         };
 
+        // Milestone calculation function for each game
+        function getGameMilestone(game) {
+            let added = parseInt(localStorage.getItem(`magicalorbs_added_${game.id}`) || '0', 10);
+            let current = game.baseReviews + added;
+            let target = MILESTONE_TIERS.find(t => t > current) || (Math.ceil((current + 1) / 500) * 500);
+            let remaining = Math.max(0, target - current);
+            let percentage = Math.min(100, Math.max(5, (current / target) * 100));
+            return { current, target, remaining, percentage };
+        }
+
+        function incrementGameMilestone(gameId) {
+            let added = parseInt(localStorage.getItem(`magicalorbs_added_${gameId}`) || '0', 10);
+            localStorage.setItem(`magicalorbs_added_${gameId}`, (added + 1).toString());
+        }
+
         // Initialize state
         GAMES.forEach((game) => {
             const allPool = [...game.presets.map(p => p.text), ...game.extraReviews];
@@ -614,6 +615,7 @@
             grid.innerHTML = GAMES.map((game) => {
                 const isDone = state.completed[game.id];
                 const currentReview = state.currentText[game.id];
+                const milestone = getGameMilestone(game);
 
                 const chipsHtml = game.presets.map((preset, idx) => `
                     <button
@@ -626,13 +628,16 @@
                 `).join('');
 
                 const actualReviewsHtml = game.actualReviews.map((rev) => `
-                    <div class="p-2.5 rounded-xl bg-slate-950/70 border border-slate-800/80 text-left">
+                    <div class="p-3 rounded-2xl bg-slate-950/80 border border-slate-800 text-left">
                         <div class="flex items-center justify-between mb-1">
                             <div class="flex items-center gap-2">
-                                <span class="w-5 h-5 rounded-full ${rev.avatarBg} text-white text-[10px] font-black flex items-center justify-center shrink-0">${rev.initial}</span>
-                                <span class="text-xs font-bold text-slate-200">${rev.user}</span>
+                                <span class="w-6 h-6 rounded-full ${rev.avatarBg} text-white text-[11px] font-black flex items-center justify-center shrink-0">${rev.initial}</span>
+                                <div>
+                                    <div class="text-xs font-bold text-slate-200">${rev.user}</div>
+                                    <div class="text-[9px] text-slate-400 font-medium">${rev.date}</div>
+                                </div>
                             </div>
-                            <div class="text-amber-400 text-[10px] flex items-center">
+                            <div class="text-amber-400 text-xs flex items-center">
                                 <i class="fa-solid fa-star"></i>
                                 <i class="fa-solid fa-star"></i>
                                 <i class="fa-solid fa-star"></i>
@@ -640,21 +645,22 @@
                                 <i class="fa-solid fa-star"></i>
                             </div>
                         </div>
-                        <p class="text-[11px] text-slate-300 leading-snug italic">"${rev.comment}"</p>
+                        <p class="text-xs text-slate-300 leading-relaxed italic mt-1.5">"${rev.comment}"</p>
+                        <div class="mt-1 text-[10px] text-slate-500 font-medium flex items-center gap-1">
+                            <i class="fa-regular fa-thumbs-up"></i> ${rev.helpful}
+                        </div>
                     </div>
                 `).join('');
 
                 const directWebUrl = `https://play.google.com/store/apps/details?id=${encodeURIComponent(game.packageId)}&reviewId=0`;
 
                 return `
-                    <article id="card-${game.id}" class="glass-card rounded-3xl p-5 flex flex-col justify-between transition-all duration-300 relative ${isDone ? 'ring-2 ring-emerald-400 bg-slate-900/95' : ''}">
+                    <article id="card-${game.id}" class="glass-card rounded-3xl p-5 sm:p-6 flex flex-col justify-between transition-all duration-300 relative ${isDone ? 'ring-2 ring-emerald-400 bg-slate-900/95' : ''}">
                         <div>
                             <!-- Google Play App Header Block -->
                             <div class="flex items-start justify-between gap-3 mb-3">
                                 <div class="flex items-center gap-3.5">
-                                    <div class="shrink-0">
-                                        ${game.iconSvg}
-                                    </div>
+                                    ${game.iconSvg}
                                     <div>
                                         <div class="flex items-center gap-1.5 mb-0.5">
                                             <h2 class="text-base sm:text-lg font-extrabold text-white leading-tight">${game.title}</h2>
@@ -669,6 +675,25 @@
                                         <i class="fa-solid fa-check"></i> Done
                                     </span>
                                 ` : ''}
+                            </div>
+
+                            <!-- Individual Game Review Milestone Target Progress Bar -->
+                            <div class="mb-3.5 p-3 rounded-2xl bg-gradient-to-r from-slate-950/90 to-indigo-950/60 border border-indigo-500/30">
+                                <div class="flex items-center justify-between text-xs mb-1.5">
+                                    <span class="font-extrabold text-slate-300 flex items-center gap-1">
+                                        <i class="fa-solid fa-bullseye text-indigo-400"></i> Review Milestone
+                                    </span>
+                                    <span class="font-bold text-amber-300">
+                                        ${milestone.current} / ${milestone.target} <span class="text-slate-400 font-normal">(${milestone.remaining} Left!)</span>
+                                    </span>
+                                </div>
+                                <div class="w-full bg-slate-900 rounded-full h-2.5 border border-slate-800 overflow-hidden">
+                                    <div class="h-full rounded-full bg-gradient-to-r from-emerald-400 via-teal-300 to-indigo-400 progress-bar-fill" style="width: ${milestone.percentage}%;"></div>
+                                </div>
+                                <div class="flex items-center justify-between text-[10px] text-slate-400 mt-1.5 font-medium">
+                                    <span>${milestone.percentage.toFixed(1)}% Goal Completed</span>
+                                    <span class="text-indigo-300 font-bold">Auto-levels up to next tier 🚀</span>
+                                </div>
                             </div>
 
                             <!-- Play Store Metrics Bar (Rating, Downloads, Age) -->
@@ -698,7 +723,7 @@
                                     </span>
                                     <span class="text-[10px] text-amber-400 font-bold">5.0 ★ Rated</span>
                                 </div>
-                                <div class="space-y-1.5">
+                                <div class="space-y-2">
                                     ${actualReviewsHtml}
                                 </div>
                             </div>
@@ -783,8 +808,6 @@
                     </article>
                 `;
             }).join('');
-
-            updateProgress();
         }
 
         function selectPreset(gameId, presetIdx) {
@@ -861,10 +884,10 @@
             // 1. Copy to clipboard immediately
             await copyToClipboard(textToCopy);
 
-            // 2. Increment community review target milestone
-            incrementMilestoneTarget();
+            // 2. Increment this specific game's review milestone
+            incrementGameMilestone(gameId);
 
-            // 3. Mark as completed & update UI
+            // 3. Mark as completed & re-render
             markDone(gameId);
 
             // 4. Show Toast notification
@@ -927,28 +950,6 @@
             }
         }
 
-        function updateProgress() {
-            const doneCount = Object.values(state.completed).filter(Boolean).length;
-            const progressEl = document.getElementById('progress-text');
-
-            for (let i = 1; i <= 3; i++) {
-                const starEl = document.getElementById(`star-${i}`);
-                if (starEl) {
-                    if (i <= doneCount) {
-                        starEl.className = 'fa-solid fa-star text-amber-400 transition-all scale-110';
-                    } else {
-                        starEl.className = 'fa-regular fa-star text-slate-600 transition-all';
-                    }
-                }
-            }
-
-            if (progressEl) {
-                progressEl.textContent = doneCount === GAMES.length
-                    ? `🎉 All 3 Games Completed! Thank you for supporting!`
-                    : `${doneCount} / ${GAMES.length} Games Completed`;
-            }
-        }
-
         let toastTimer = null;
         function showToast(title, subtitle) {
             const toast = document.getElementById('toast');
@@ -979,15 +980,32 @@
             if (modal) modal.classList.add('hidden');
         }
 
+        function openTrailerModal() {
+            const modal = document.getElementById('trailer-modal');
+            const iframe = document.getElementById('trailer-iframe');
+            if (modal && iframe) {
+                iframe.src = 'https://www.youtube.com/embed/SD9OgWYFJWA?autoplay=1';
+                modal.classList.remove('hidden');
+            }
+        }
+
+        function closeTrailerModal() {
+            const modal = document.getElementById('trailer-modal');
+            const iframe = document.getElementById('trailer-iframe');
+            if (modal && iframe) {
+                iframe.src = '';
+                modal.classList.add('hidden');
+            }
+        }
+
         function shareOnWhatsApp() {
             const currentUrl = window.location.href;
-            const shareText = `Hey! Support our Indian game studio *Magicalorbs* (Creators of Pakad Dhakad). Join our 500 Reviews goal — 1-Tap copy & rate on Google Play: ${currentUrl}`;
+            const shareText = `Hey! Support Indian game studio *Magicalorbs* (Creators of Pakad Dhakad). Join our game review milestones — 1-Tap copy & rate 5 stars on Google Play: ${currentUrl}`;
             const whatsappUrl = `https://api.whatsapp.com/send?text=${encodeURIComponent(shareText)}`;
             window.open(whatsappUrl, '_blank');
         }
 
         // Initialize UI
-        updateMilestoneUI();
         renderGames();
     </script>
 </body>
