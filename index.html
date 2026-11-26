@@ -1,0 +1,660 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Magicalorbs Games | Quick Review & Rating Hub</title>
+    <meta name="description" content="Support Magicalorbs games on Google Play in 10 seconds! 1-Tap copy review and rate 5 stars.">
+    <meta name="theme-color" content="#070913">
+
+    <!-- Open Graph / WhatsApp / Facebook Meta Tags -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Support Magicalorbs Games in 10 Seconds!">
+    <meta property="og:description" content="1-Tap Copy review & Rate 5-Stars on Google Play Store. Zero typing needed!">
+    <meta property="og:site_name" content="Magicalorbs Review Hub">
+
+    <!-- Favicon (Inline SVG) -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎮</text></svg>">
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        darkbg: '#070913',
+                        glass: 'rgba(15, 23, 42, 0.82)',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- Canvas Confetti for Celebration -->
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.2/dist/confetti.browser.min.js"></script>
+
+    <style>
+        *, *::before, *::after {
+            box-sizing: border-box;
+        }
+        body {
+            margin: 0;
+            font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background-color: #070913;
+            background-image:
+                radial-gradient(at 0% 0%, rgba(99, 102, 241, 0.22) 0px, transparent 50%),
+                radial-gradient(at 100% 0%, rgba(236, 72, 153, 0.18) 0px, transparent 50%),
+                radial-gradient(at 50% 100%, rgba(16, 185, 129, 0.15) 0px, transparent 50%);
+            background-attachment: fixed;
+            color: #f8fafc;
+            min-height: 100vh;
+            -webkit-tap-highlight-color: transparent;
+        }
+        .glass-card {
+            background: rgba(15, 23, 42, 0.85);
+            backdrop-filter: blur(18px);
+            -webkit-backdrop-filter: blur(18px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            box-shadow: 0 20px 45px -15px rgba(0, 0, 0, 0.7);
+        }
+        .glass-card:hover {
+            border-color: rgba(255, 255, 255, 0.16);
+        }
+        .cta-btn {
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+            transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .cta-btn:hover {
+            filter: brightness(1.1);
+            transform: translateY(-1px);
+            box-shadow: 0 10px 25px -5px rgba(16, 185, 129, 0.5);
+        }
+        .cta-btn:active {
+            transform: scale(0.98);
+        }
+        @keyframes pulseGlow {
+            0%, 100% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.4); }
+            50% { box-shadow: 0 0 0 10px rgba(16, 185, 129, 0); }
+        }
+        .pulse-glow {
+            animation: pulseGlow 2.2s infinite;
+        }
+        /* Custom scrollbar for textareas */
+        textarea::-webkit-scrollbar {
+            width: 6px;
+        }
+        textarea::-webkit-scrollbar-thumb {
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body class="antialiased selection:bg-emerald-500 selection:text-white pb-14">
+
+    <!-- Toast Notification Banner -->
+    <div id="toast" class="fixed top-4 left-1/2 -translate-x-1/2 z-50 pointer-events-none opacity-0 transition-all duration-300 transform -translate-y-4 w-[92%] max-w-md">
+        <div class="bg-slate-900/95 border-2 border-emerald-400 text-white px-4 py-3.5 rounded-2xl shadow-2xl flex items-center gap-3.5 backdrop-blur-xl">
+            <div class="w-10 h-10 rounded-xl bg-emerald-500 text-slate-950 flex items-center justify-center shrink-0 font-extrabold shadow-lg">
+                <i class="fa-solid fa-check text-lg"></i>
+            </div>
+            <div class="text-left flex-1">
+                <p id="toast-title" class="text-sm font-black text-emerald-300 tracking-wide">Review Copied!</p>
+                <p id="toast-subtitle" class="text-xs text-slate-200 leading-snug mt-0.5">Opening Play Store — Just tap 5-Stars &amp; Paste.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Container -->
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 pt-6">
+
+        <!-- Top Studio Badge & Share Bar -->
+        <div class="flex items-center justify-between gap-3 mb-6">
+            <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-indigo-500/15 border border-indigo-400/30 text-indigo-300 text-xs font-bold tracking-wide uppercase">
+                <i class="fa-solid fa-gamepad text-indigo-400"></i>
+                <span>Magicalorbs Pvt. Ltd.</span>
+            </div>
+
+            <!-- WhatsApp Share Button -->
+            <button
+                type="button"
+                onclick="shareOnWhatsApp()"
+                class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-500/15 hover:bg-emerald-500/25 border border-emerald-400/30 text-emerald-300 text-xs font-bold transition cursor-pointer"
+            >
+                <i class="fa-brands fa-whatsapp text-sm"></i>
+                <span class="hidden sm:inline">Share with Friends</span>
+                <span class="sm:hidden">Share</span>
+            </button>
+        </div>
+
+        <!-- Studio Header -->
+        <header class="text-center mb-8">
+            <h1 class="text-2xl sm:text-4xl lg:text-5xl font-black tracking-tight text-white mb-3">
+                Support Our Games in <span class="bg-gradient-to-r from-emerald-400 via-teal-300 to-indigo-400 bg-clip-text text-transparent">10 Seconds!</span> 🚀
+            </h1>
+            <p class="text-slate-300 text-sm sm:text-base max-w-2xl mx-auto leading-relaxed">
+                Koi typing nahi karni! Niche kisi bhi game par <strong class="text-emerald-300 font-bold">"1-Tap Copy &amp; Rate"</strong> dabayein — review copy hokar direct Play Store rating window khulegi. Bas <strong class="text-amber-300 font-bold">5 Stars</strong> select karke Paste kar dein!
+            </p>
+
+            <!-- 3 Step Quick Guide Cards -->
+            <div class="grid grid-cols-3 gap-2 sm:gap-4 max-w-xl mx-auto mt-6 text-left">
+                <div class="bg-slate-900/60 border border-slate-800 rounded-xl p-2.5 sm:p-3 text-center">
+                    <span class="w-6 h-6 rounded-full bg-emerald-500/20 text-emerald-400 text-xs font-bold inline-flex items-center justify-center mb-1">1</span>
+                    <p class="text-[11px] sm:text-xs font-bold text-white">Tap Button</p>
+                    <p class="text-[10px] text-slate-400 hidden sm:block">Copies review text automatically</p>
+                </div>
+                <div class="bg-slate-900/60 border border-slate-800 rounded-xl p-2.5 sm:p-3 text-center">
+                    <span class="w-6 h-6 rounded-full bg-amber-500/20 text-amber-400 text-xs font-bold inline-flex items-center justify-center mb-1">2</span>
+                    <p class="text-[11px] sm:text-xs font-bold text-white">Rate 5 ⭐</p>
+                    <p class="text-[10px] text-slate-400 hidden sm:block">Tap 5 stars on Play Store</p>
+                </div>
+                <div class="bg-slate-900/60 border border-slate-800 rounded-xl p-2.5 sm:p-3 text-center">
+                    <span class="w-6 h-6 rounded-full bg-indigo-500/20 text-indigo-400 text-xs font-bold inline-flex items-center justify-center mb-1">3</span>
+                    <p class="text-[11px] sm:text-xs font-bold text-white">Paste &amp; Post</p>
+                    <p class="text-[10px] text-slate-400 hidden sm:block">Paste copied text and submit</p>
+                </div>
+            </div>
+
+            <!-- Progress Tracker Pill -->
+            <div class="mt-6 inline-flex items-center gap-3 px-5 py-2.5 rounded-2xl bg-slate-900/90 border border-slate-700/80 shadow-xl">
+                <div class="flex items-center gap-1.5 text-amber-400 text-sm">
+                    <i id="star-1" class="fa-regular fa-star transition-all duration-300"></i>
+                    <i id="star-2" class="fa-regular fa-star transition-all duration-300"></i>
+                    <i id="star-3" class="fa-regular fa-star transition-all duration-300"></i>
+                </div>
+                <span class="h-4 w-px bg-slate-700"></span>
+                <span id="progress-text" class="text-xs sm:text-sm font-bold text-slate-200">0 / 3 Games Rated</span>
+            </div>
+        </header>
+
+        <!-- Games Grid -->
+        <main id="games-grid" class="grid grid-cols-1 md:grid-cols-3 gap-5 sm:gap-6">
+            <!-- Game cards are rendered dynamically via JavaScript -->
+        </main>
+
+        <!-- Bottom Backup Notice Modal if Popups are Blocked -->
+        <div id="manual-modal" class="hidden fixed inset-0 z-50 bg-black/80 backdrop-blur-sm flex items-center justify-center p-4">
+            <div class="bg-slate-900 border border-slate-700 rounded-3xl p-6 max-w-sm w-full text-center shadow-2xl">
+                <div class="w-12 h-12 rounded-2xl bg-emerald-500/20 text-emerald-400 flex items-center justify-center mx-auto mb-3 text-2xl">
+                    <i class="fa-solid fa-circle-check"></i>
+                </div>
+                <h3 class="text-lg font-black text-white mb-1">Review Copied Successfully!</h3>
+                <p class="text-xs text-slate-300 mb-4">
+                    Agar Play Store automatically nahi khula, toh niche diye gaye button par click karein:
+                </p>
+                <a
+                    id="manual-play-link"
+                    href="#"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="block w-full py-3 px-4 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-black text-sm transition mb-2"
+                >
+                    <i class="fa-brands fa-google-play mr-1.5"></i> Open Play Store Now
+                </a>
+                <button
+                    type="button"
+                    onclick="closeManualModal()"
+                    class="w-full py-2.5 text-xs text-slate-400 hover:text-white font-semibold transition"
+                >
+                    Close
+                </button>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer class="mt-14 pt-8 border-t border-slate-800/80 text-center text-xs text-slate-400">
+            <div class="flex items-center justify-center gap-2 mb-2">
+                <span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
+                <span class="text-slate-300 font-medium">All 3 Games Live &amp; Verified on Google Play</span>
+            </div>
+            <p class="font-medium text-slate-300 mb-2">Made with ❤️ by <span class="text-indigo-400 font-bold">Magicalorbs Pvt. Ltd.</span></p>
+            <p class="space-x-2">
+                <a href="https://play.google.com/store/apps/dev?id=4964173151888299105" target="_blank" rel="noopener noreferrer" class="underline hover:text-white transition">
+                    <i class="fa-brands fa-google-play mr-1"></i> Developer Profile
+                </a>
+                <span>•</span>
+                <span>&copy; <span id="year">2026</span> Magicalorbs</span>
+            </p>
+        </footer>
+    </div>
+
+    <script>
+        // Set dynamic year
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        // Verified Google Play Package IDs for Magicalorbs Pvt. Ltd.
+        const GAMES = [
+            {
+                id: 'g1',
+                title: 'Pakad Dhakad',
+                subtitle: 'Multiplayer Chase Game',
+                packageId: 'com.magicalorbs.pakaddhakad',
+                badgeColor: 'from-amber-500 to-orange-600',
+                accentText: 'text-amber-300',
+                iconSvg: `
+                    <svg viewBox="0 0 64 64" class="w-12 h-12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect width="64" height="64" rx="16" fill="url(#pd_grad)"/>
+                        <circle cx="24" cy="24" r="7" fill="#FFF"/>
+                        <path d="M14 46C14 39.5 18.5 35 24 35C29.5 35 34 39.5 34 46" stroke="#FFF" stroke-width="4.5" stroke-linecap="round"/>
+                        <circle cx="43" cy="21" r="6" fill="#FDE047"/>
+                        <path d="M36 42L44 33L52 40" stroke="#FDE047" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        <defs>
+                            <linearGradient id="pd_grad" x1="0" y1="0" x2="64" y2="64" gradientUnits="userSpaceOnUse">
+                                <stop stop-color="#F59E0B"/>
+                                <stop offset="1" stop-color="#EA580C"/>
+                            </linearGradient>
+                        </defs>
+                    </svg>
+                `,
+                presets: [
+                    { label: 'Mast Game 🔥', text: 'Bahut hi mast aur funny multiplayer chase game hai! Doston ke saath khelne mein full maza aata hai.' },
+                    { label: 'Smooth & Fun 🎮', text: 'Super fun Indian chase game! Controls are smooth, matches are fast, and playing with friends is hilarious.' },
+                    { label: 'Best Timepass ⭐', text: 'Best timepass game! Graphics aur desi vibe bahut acchi hai, definitely worth playing with friends.' }
+                ],
+                extraReviews: [
+                    'Really entertaining multiplayer game! Easy to play and super fun when chasing friends around.',
+                    'Ek number game hai bhai! Full desi feel aur smooth gameplay, maza aa gaya khel kar.',
+                    'Great concept and energetic gameplay! Love the Indian village chase theme and quick matches.',
+                    'Awesome game by Magicalorbs! Runs smoothly on my phone and keeps everyone laughing.'
+                ]
+            },
+            {
+                id: 'g2',
+                title: 'Arrow Puzzle : Snake Rescue',
+                subtitle: 'Brain Teaser & Escape Puzzle',
+                packageId: 'com.magicalorbs.arrowsnake',
+                badgeColor: 'from-emerald-500 to-teal-600',
+                accentText: 'text-emerald-300',
+                iconSvg: `
+                    <svg viewBox="0 0 64 64" class="w-12 h-12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect width="64" height="64" rx="16" fill="url(#as_grad)"/>
+                        <path d="M16 42C16 32 28 36 32 26C35 19 42 18 47 22" stroke="#FFF" stroke-width="5" stroke-linecap="round"/>
+                        <path d="M41 16L49 22L42 29" stroke="#FDE047" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        <circle cx="17" cy="43" r="3.5" fill="#A7F3D0"/>
+                        <defs>
+                            <linearGradient id="as_grad" x1="0" y1="0" x2="64" y2="64" gradientUnits="userSpaceOnUse">
+                                <stop stop-color="#10B981"/>
+                                <stop offset="1" stop-color="#0D9488"/>
+                            </linearGradient>
+                        </defs>
+                    </svg>
+                `,
+                presets: [
+                    { label: 'Addictive Puzzle 🧠', text: 'Very clever and addictive puzzle game! Each level makes you think and feels super satisfying to solve.' },
+                    { label: 'Mind Fresh 🎮', text: 'Bahut hi interesting brain puzzle game hai! Levels khelne mein kaafi maza aata hai.' },
+                    { label: 'Clean & Smooth ⭐', text: 'Clean visuals, smooth tap controls, and really fun snake rescue levels. Great casual puzzle!' }
+                ],
+                extraReviews: [
+                    'Love the arrow puzzle mechanics! Starts easy and gets nicely challenging without feeling unfair.',
+                    'Perfect brain teaser game for short breaks. Smooth animations and crisp controls.',
+                    'Dimag chalane wala mast game hai! Har level naya challenge deta hai.',
+                    'Super satisfying puzzle game! Untangling the snakes in the right order is really fun.'
+                ]
+            },
+            {
+                id: 'g3',
+                title: 'Screw Untwist : Animal Rescue',
+                subtitle: 'Relaxing Mechanical Puzzle',
+                packageId: 'com.magicalorbs.screwuntwist',
+                badgeColor: 'from-indigo-500 to-purple-600',
+                accentText: 'text-indigo-300',
+                iconSvg: `
+                    <svg viewBox="0 0 64 64" class="w-12 h-12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect width="64" height="64" rx="16" fill="url(#su_grad)"/>
+                        <circle cx="32" cy="32" r="14" stroke="#FFF" stroke-width="4.5"/>
+                        <path d="M26 26L38 38M38 26L26 38" stroke="#FDE047" stroke-width="4" stroke-linecap="round"/>
+                        <defs>
+                            <linearGradient id="su_grad" x1="0" y1="0" x2="64" y2="64" gradientUnits="userSpaceOnUse">
+                                <stop stop-color="#6366F1"/>
+                                <stop offset="1" stop-color="#9333EA"/>
+                            </linearGradient>
+                        </defs>
+                    </svg>
+                `,
+                presets: [
+                    { label: 'Super Satisfying 🔩', text: 'Super satisfying screw puzzle game! Rescuing the cute animals after clearing the bolts feels awesome.' },
+                    { label: 'Relaxing Game ❤️', text: 'Bahut hi relaxing aur fun game hai! Timepass ke liye best puzzle game hai.' },
+                    { label: 'Cute & Fun ⭐', text: 'Great screw untwist mechanics and cute animal rescue theme. Smooth gameplay and nice levels!' }
+                ],
+                extraReviews: [
+                    'Really enjoyable screw pin puzzle! Makes you plan your moves carefully and feels super rewarding.',
+                    'Cute graphics and very satisfying unscrewing sound and animations. Love playing it daily!',
+                    'Mast puzzle game hai, ek baar start karo toh levels complete karne ka mann karta rehta hai.',
+                    'Well-designed levels with zero lag. One of the most relaxing puzzle games on my phone.'
+                ]
+            }
+        ];
+
+        // State management
+        const state = {
+            currentText: {},
+            completed: {},
+            shuffleIndex: {}
+        };
+
+        // Initialize state
+        GAMES.forEach((game) => {
+            const allPool = [...game.presets.map(p => p.text), ...game.extraReviews];
+            const randIdx = Math.floor(Math.random() * allPool.length);
+            state.currentText[game.id] = allPool[randIdx];
+            state.shuffleIndex[game.id] = randIdx;
+            state.completed[game.id] = false;
+        });
+
+        function renderGames() {
+            const grid = document.getElementById('games-grid');
+            if (!grid) return;
+
+            grid.innerHTML = GAMES.map((game) => {
+                const isDone = state.completed[game.id];
+                const currentReview = state.currentText[game.id];
+
+                const chipsHtml = game.presets.map((preset, idx) => `
+                    <button
+                        type="button"
+                        onclick="selectPreset('${game.id}', ${idx})"
+                        class="text-[11px] font-semibold px-2.5 py-1.5 rounded-xl bg-slate-800/90 hover:bg-slate-700 text-slate-200 border border-slate-700/80 transition cursor-pointer"
+                    >
+                        ${preset.label}
+                    </button>
+                `).join('');
+
+                const directWebUrl = `https://play.google.com/store/apps/details?id=${encodeURIComponent(game.packageId)}&reviewId=0`;
+
+                return `
+                    <article id="card-${game.id}" class="glass-card rounded-3xl p-5 flex flex-col justify-between transition-all duration-300 relative ${isDone ? 'ring-2 ring-emerald-400 bg-slate-900/95' : ''}">
+                        <div>
+                            <!-- Top Game Header -->
+                            <div class="flex items-start justify-between gap-3 mb-4">
+                                <div class="flex items-center gap-3.5">
+                                    <div class="shrink-0 shadow-lg rounded-2xl overflow-hidden">
+                                        ${game.iconSvg}
+                                    </div>
+                                    <div>
+                                        <h2 class="text-base sm:text-lg font-extrabold text-white leading-tight">${game.title}</h2>
+                                        <p class="text-xs font-semibold ${game.accentText} mt-0.5">${game.subtitle}</p>
+                                    </div>
+                                </div>
+                                ${isDone ? `
+                                    <span class="shrink-0 inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-[11px] font-black bg-emerald-500/20 text-emerald-300 border border-emerald-400/50">
+                                        <i class="fa-solid fa-check"></i> Done
+                                    </span>
+                                ` : ''}
+                            </div>
+
+                            <!-- 1-Tap Mood Chips -->
+                            <div class="mb-3">
+                                <div class="flex items-center justify-between mb-1.5">
+                                    <span class="text-[11px] font-bold uppercase tracking-wider text-slate-400">Quick Review Choice</span>
+                                    <button
+                                        type="button"
+                                        onclick="shuffleReview('${game.id}')"
+                                        class="inline-flex items-center gap-1 text-[11px] font-bold text-indigo-300 hover:text-indigo-200 transition cursor-pointer"
+                                    >
+                                        <i class="fa-solid fa-shuffle"></i> Change Text
+                                    </button>
+                                </div>
+                                <div class="flex flex-wrap gap-1.5">
+                                    ${chipsHtml}
+                                </div>
+                            </div>
+
+                            <!-- Editable Review Preview Box -->
+                            <div class="mb-4">
+                                <label for="textarea-${game.id}" class="sr-only">Review Text</label>
+                                <textarea
+                                    id="textarea-${game.id}"
+                                    rows="3"
+                                    oninput="updateCustomText('${game.id}', this.value)"
+                                    class="w-full rounded-2xl bg-slate-950/80 border border-slate-700/80 focus:border-emerald-400 focus:outline-none p-3 text-xs sm:text-sm text-slate-100 leading-relaxed resize-none transition"
+                                >${currentReview}</textarea>
+                            </div>
+                        </div>
+
+                        <!-- Action Buttons -->
+                        <div class="space-y-2">
+                            <!-- Primary 1-Tap Copy & Open Button -->
+                            <button
+                                type="button"
+                                onclick="handleCopyAndOpen('${game.id}')"
+                                class="cta-btn ${isDone ? '' : 'pulse-glow'} w-full py-3.5 px-4 rounded-2xl text-slate-950 font-black text-sm sm:text-base flex items-center justify-center gap-2 shadow-lg cursor-pointer"
+                            >
+                                <i class="fa-solid fa-copy text-base"></i>
+                                <span>1-Tap Copy &amp; Rate</span>
+                                <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i>
+                            </button>
+
+                            <!-- Sub-actions: Copy only & Open store direct -->
+                            <div class="flex items-center justify-between pt-1 px-1 text-[11px] text-slate-400">
+                                <button
+                                    type="button"
+                                    onclick="handleCopyOnly('${game.id}')"
+                                    class="hover:text-emerald-300 transition underline underline-offset-2 flex items-center gap-1 cursor-pointer"
+                                >
+                                    <i class="fa-regular fa-clipboard"></i> Copy text only
+                                </button>
+                                <a
+                                    href="${directWebUrl}"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    onclick="markDone('${game.id}')"
+                                    class="hover:text-indigo-300 transition underline underline-offset-2 flex items-center gap-1"
+                                >
+                                    Direct Store Link <i class="fa-solid fa-arrow-right text-[9px]"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </article>
+                `;
+            }).join('');
+
+            updateProgress();
+        }
+
+        function selectPreset(gameId, presetIdx) {
+            const game = GAMES.find(g => g.id === gameId);
+            if (!game || !game.presets[presetIdx]) return;
+            const chosenText = game.presets[presetIdx].text;
+            state.currentText[gameId] = chosenText;
+            const textarea = document.getElementById(`textarea-${gameId}`);
+            if (textarea) textarea.value = chosenText;
+        }
+
+        function shuffleReview(gameId) {
+            const game = GAMES.find(g => g.id === gameId);
+            if (!game) return;
+            const allPool = [...game.presets.map(p => p.text), ...game.extraReviews];
+            let nextIdx = (state.shuffleIndex[gameId] + 1) % allPool.length;
+            state.shuffleIndex[gameId] = nextIdx;
+            state.currentText[gameId] = allPool[nextIdx];
+            const textarea = document.getElementById(`textarea-${gameId}`);
+            if (textarea) textarea.value = allPool[nextIdx];
+        }
+
+        function updateCustomText(gameId, val) {
+            state.currentText[gameId] = val;
+        }
+
+        // Robust Clipboard Copy function
+        async function copyToClipboard(text) {
+            let success = false;
+            if (navigator.clipboard && window.isSecureContext) {
+                try {
+                    await navigator.clipboard.writeText(text);
+                    success = true;
+                } catch (e) {
+                    console.warn('navigator.clipboard failed:', e);
+                }
+            }
+
+            if (!success) {
+                try {
+                    const temp = document.createElement('textarea');
+                    temp.value = text;
+                    temp.setAttribute('readonly', '');
+                    temp.style.position = 'fixed';
+                    temp.style.left = '-9999px';
+                    temp.style.top = '-9999px';
+                    document.body.appendChild(temp);
+                    temp.focus();
+                    temp.select();
+                    temp.setSelectionRange(0, 99999);
+                    success = document.execCommand('copy');
+                    document.body.removeChild(temp);
+                } catch (err) {
+                    console.error('Fallback execCommand failed:', err);
+                }
+            }
+            return success;
+        }
+
+        // 1-Tap Copy & Open Play Store
+        async function handleCopyAndOpen(gameId) {
+            const game = GAMES.find(g => g.id === gameId);
+            if (!game) return;
+
+            const textarea = document.getElementById(`textarea-${gameId}`);
+            const textToCopy = (textarea ? textarea.value : state.currentText[gameId]).trim();
+
+            // 1. Copy to clipboard immediately
+            await copyToClipboard(textToCopy);
+
+            // 2. Mark as completed & update UI
+            markDone(gameId);
+
+            // 3. Show Toast
+            showToast(
+                `"${game.title}" Review Copied!`,
+                'Play Store khul raha hai — bas 5 Stars chunein aur Paste kar dein!'
+            );
+
+            // 4. Determine URLs
+            const directWebUrl = `https://play.google.com/store/apps/details?id=${encodeURIComponent(game.packageId)}&reviewId=0`;
+            const marketIntentUrl = `market://details?id=${encodeURIComponent(game.packageId)}`;
+
+            // Check if device is Android
+            const isAndroid = /Android/i.test(navigator.userAgent);
+
+            // Setup manual modal link as safety fallback
+            const modalLink = document.getElementById('manual-play-link');
+            if (modalLink) {
+                modalLink.href = directWebUrl;
+            }
+
+            if (isAndroid) {
+                // Try opening native Play Store app immediately without setTimeout to prevent popup blockers
+                try {
+                    window.location.href = marketIntentUrl;
+                } catch (e) {
+                    window.location.href = directWebUrl;
+                }
+            } else {
+                // Desktop or iOS: open web store directly
+                const win = window.open(directWebUrl, '_blank', 'noopener,noreferrer');
+                if (!win || win.closed || typeof win.closed === 'undefined') {
+                    // Popup was blocked by browser, show clean fallback modal
+                    openManualModal();
+                }
+            }
+        }
+
+        // Copy text only without launching store
+        async function handleCopyOnly(gameId) {
+            const game = GAMES.find(g => g.id === gameId);
+            if (!game) return;
+
+            const textarea = document.getElementById(`textarea-${gameId}`);
+            const textToCopy = (textarea ? textarea.value : state.currentText[gameId]).trim();
+
+            await copyToClipboard(textToCopy);
+            showToast('Review Text Copied!', 'Text aapke clipboard me copy ho gaya hai.');
+        }
+
+        function markDone(gameId) {
+            state.completed[gameId] = true;
+            renderGames();
+
+            // Check if all 3 rated
+            const doneCount = Object.values(state.completed).filter(Boolean).length;
+            if (doneCount === GAMES.length && typeof confetti === 'function') {
+                confetti({
+                    particleCount: 100,
+                    spread: 70,
+                    origin: { y: 0.6 }
+                });
+            }
+        }
+
+        function updateProgress() {
+            const doneCount = Object.values(state.completed).filter(Boolean).length;
+            const progressEl = document.getElementById('progress-text');
+
+            // Update stars
+            for (let i = 1; i <= 3; i++) {
+                const starEl = document.getElementById(`star-${i}`);
+                if (starEl) {
+                    if (i <= doneCount) {
+                        starEl.className = 'fa-solid fa-star text-amber-400 transition-all scale-110';
+                    } else {
+                        starEl.className = 'fa-regular fa-star text-slate-600 transition-all';
+                    }
+                }
+            }
+
+            if (progressEl) {
+                progressEl.textContent = doneCount === GAMES.length
+                    ? `🎉 All 3 Games Rated! Thank you!`
+                    : `${doneCount} / ${GAMES.length} Games Rated`;
+            }
+        }
+
+        let toastTimer = null;
+        function showToast(title, subtitle) {
+            const toast = document.getElementById('toast');
+            const titleEl = document.getElementById('toast-title');
+            const subEl = document.getElementById('toast-subtitle');
+            if (!toast) return;
+
+            if (titleEl) titleEl.textContent = title;
+            if (subEl) subEl.textContent = subtitle;
+
+            toast.classList.remove('opacity-0', '-translate-y-4');
+            toast.classList.add('opacity-100', 'translate-y-0');
+
+            clearTimeout(toastTimer);
+            toastTimer = setTimeout(() => {
+                toast.classList.remove('opacity-100', 'translate-y-0');
+                toast.classList.add('opacity-0', '-translate-y-4');
+            }, 3800);
+        }
+
+        function openManualModal() {
+            const modal = document.getElementById('manual-modal');
+            if (modal) modal.classList.remove('hidden');
+        }
+
+        function closeManualModal() {
+            const modal = document.getElementById('manual-modal');
+            if (modal) modal.classList.add('hidden');
+        }
+
+        function shareOnWhatsApp() {
+            const currentUrl = window.location.href;
+            const shareText = `Hey! Support our Indian game studio *Magicalorbs* in 10 seconds. Just 1-tap copy review & rate 5 stars on Play Store: ${currentUrl}`;
+            const whatsappUrl = `https://api.whatsapp.com/send?text=${encodeURIComponent(shareText)}`;
+            window.open(whatsappUrl, '_blank');
+        }
+
+        // Render on page load
+        renderGames();
+    </script>
+</body>
+</html>
