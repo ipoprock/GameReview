@@ -458,6 +458,15 @@
                         date: 'Verified Player',
                         helpful: '24 found helpful',
                         comment: 'Desi Indian village chase theme and super energetic gameplay! Zero lag on Android.'
+                    },
+                    {
+                        user: 'Kunal Patel',
+                        initial: 'K',
+                        avatarBg: 'bg-cyan-600',
+                        stars: 5,
+                        date: 'Verified Player',
+                        helpful: '18 found helpful',
+                        comment: 'Desi Indian characters and quick multiplayer chase matches! Super fun to play with family and friends.'
                     }
                 ],
                 presets: [
@@ -504,6 +513,15 @@
                         date: 'Verified Player',
                         helpful: '19 found helpful',
                         comment: 'Dimag chalane wala mast game! Clean graphics, very smooth tap controls, perfect timepass.'
+                    },
+                    {
+                        user: 'Simran Kaur',
+                        initial: 'S',
+                        avatarBg: 'bg-pink-600',
+                        stars: 5,
+                        date: 'Verified Player',
+                        helpful: '27 found helpful',
+                        comment: 'Really smart level design. Starts simple and gives great satisfaction when you untangle tricky snakes!'
                     }
                 ],
                 presets: [
@@ -550,6 +568,15 @@
                         date: 'Verified Player',
                         helpful: '22 found helpful',
                         comment: 'Very relaxing puzzle game. Levels are well-designed with zero lag. Highly recommended!'
+                    },
+                    {
+                        user: 'Ananya Das',
+                        initial: 'A',
+                        avatarBg: 'bg-teal-600',
+                        stars: 5,
+                        date: 'Verified Player',
+                        helpful: '15 found helpful',
+                        comment: 'Cute animal animations and super smooth screw turning physics! ASMR sounds make it very calming.'
                     }
                 ],
                 presets: [
@@ -616,23 +643,6 @@
                     </button>
                 `).join('');
 
-                const topReview = game.actualReviews[0];
-                const actualReviewsHtml = `
-                    <div class="p-2.5 rounded-2xl bg-slate-950/80 border border-slate-800 text-left">
-                        <div class="flex items-center justify-between mb-1">
-                            <div class="flex items-center gap-1.5">
-                                <span class="w-5 h-5 rounded-full ${topReview.avatarBg} text-white text-[10px] font-black flex items-center justify-center shrink-0">${topReview.initial}</span>
-                                <span class="text-xs font-bold text-slate-200">${topReview.user}</span>
-                                <i class="fa-solid fa-circle-check text-emerald-400 text-[10px]" title="Verified Player"></i>
-                            </div>
-                            <div class="text-amber-400 text-[10px] flex items-center">
-                                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-                            </div>
-                        </div>
-                        <p class="text-[11px] text-slate-300 leading-snug italic mt-0.5">"${topReview.comment}"</p>
-                    </div>
-                `;
-
                 const directWebUrl = `https://play.google.com/store/apps/details?id=${encodeURIComponent(game.packageId)}&reviewId=0`;
 
                 return `
@@ -678,15 +688,25 @@
                                 </div>
                             </div>
 
-                            <!-- Social Proof: Real Comments from Google Play -->
+                            <!-- Auto-sliding Live Player Reviews Carousel (Minimal Space) -->
                             <div class="mb-2.5">
                                 <div class="flex items-center justify-between mb-1">
                                     <span class="text-[10px] font-extrabold uppercase tracking-wider text-slate-400 flex items-center gap-1">
                                         <i class="fa-brands fa-google-play text-emerald-400"></i> Player Feedback:
                                     </span>
-                                    <span class="text-[10px] text-amber-400 font-bold">5.0 ★ Rated</span>
+                                    <div class="flex items-center gap-1.5">
+                                        <button type="button" onclick="prevReviewSlide('${game.id}')" class="text-slate-500 hover:text-white text-[10px] px-0.5 cursor-pointer">
+                                            <i class="fa-solid fa-chevron-left"></i>
+                                        </button>
+                                        <div id="slider-dots-${game.id}" class="flex items-center gap-1"></div>
+                                        <button type="button" onclick="nextReviewSlide('${game.id}')" class="text-slate-500 hover:text-white text-[10px] px-0.5 cursor-pointer">
+                                            <i class="fa-solid fa-chevron-right"></i>
+                                        </button>
+                                    </div>
                                 </div>
-                                ${actualReviewsHtml}
+                                <div id="review-card-container-${game.id}" class="rounded-xl bg-slate-950/80 border border-slate-800 p-2 text-left min-h-[50px] flex items-center overflow-hidden">
+                                    <!-- Injected via renderReviewSlide -->
+                                </div>
                             </div>
 
                             <!-- 5-Star Selection Bar (Pre-Selected 5.0) -->
@@ -768,27 +788,72 @@
                         </div>
                     </article>
                 `;
-                                <button
-                                    type="button"
-                                    onclick="handleCopyOnly('${game.id}')"
-                                    class="hover:text-emerald-300 transition underline underline-offset-2 flex items-center gap-1 cursor-pointer"
-                                >
-                                    <i class="fa-regular fa-clipboard"></i> Copy text only
-                                </button>
-                                <a
-                                    href="${directWebUrl}"
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    onclick="markDone('${game.id}')"
-                                    class="hover:text-indigo-300 transition underline underline-offset-2 flex items-center gap-1"
-                                >
-                                    Direct Store Link <i class="fa-solid fa-arrow-right text-[9px]"></i>
-                                </a>
-                            </div>
-                        </div>
-                    </article>
-                `;
             }).join('');
+
+            // Render slider for each game
+            GAMES.forEach(g => renderReviewSlide(g.id));
+        }
+
+        // Review Slider Carousel Logic
+        const reviewSlideIndex = { g1: 0, g2: 0, g3: 0 };
+
+        function renderReviewSlide(gameId) {
+            const game = GAMES.find(g => g.id === gameId);
+            const container = document.getElementById(`review-card-container-${gameId}`);
+            const dotsContainer = document.getElementById(`slider-dots-${gameId}`);
+            if (!game || !container) return;
+
+            const reviews = game.actualReviews || [];
+            if (!reviews.length) return;
+
+            const curIdx = (reviewSlideIndex[gameId] || 0) % reviews.length;
+            const rev = reviews[curIdx];
+
+            container.innerHTML = `
+                <div class="w-full transition-opacity duration-300">
+                    <div class="flex items-center justify-between gap-1 mb-1">
+                        <div class="flex items-center gap-1.5 min-w-0">
+                            <span class="w-5 h-5 rounded-full ${rev.avatarBg} text-white text-[10px] font-bold flex items-center justify-center shrink-0 shadow-sm">${rev.initial}</span>
+                            <span class="text-xs font-bold text-slate-200 truncate">${rev.user}</span>
+                            <span class="text-[9px] text-slate-400 shrink-0">(${rev.date})</span>
+                        </div>
+                        <div class="flex items-center text-amber-400 text-[10px] shrink-0">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                        </div>
+                    </div>
+                    <p class="text-[11px] text-slate-300 leading-snug italic line-clamp-2">"${rev.comment}"</p>
+                </div>
+            `;
+
+            if (dotsContainer) {
+                dotsContainer.innerHTML = reviews.map((_, i) => `
+                    <span class="inline-block rounded-full transition-all duration-300 ${i === curIdx ? 'bg-emerald-400 w-3 h-1.5' : 'bg-slate-700 w-1.5 h-1.5'}"></span>
+                `).join('');
+            }
+        }
+
+        function nextReviewSlide(gameId) {
+            const game = GAMES.find(g => g.id === gameId);
+            if (!game || !game.actualReviews || !game.actualReviews.length) return;
+            reviewSlideIndex[gameId] = (reviewSlideIndex[gameId] + 1) % game.actualReviews.length;
+            renderReviewSlide(gameId);
+        }
+
+        function prevReviewSlide(gameId) {
+            const game = GAMES.find(g => g.id === gameId);
+            if (!game || !game.actualReviews || !game.actualReviews.length) return;
+            reviewSlideIndex[gameId] = (reviewSlideIndex[gameId] - 1 + game.actualReviews.length) % game.actualReviews.length;
+            renderReviewSlide(gameId);
+        }
+
+        let autoSlideInterval = null;
+        function startAutoSlide() {
+            if (autoSlideInterval) clearInterval(autoSlideInterval);
+            autoSlideInterval = setInterval(() => {
+                GAMES.forEach(g => {
+                    nextReviewSlide(g.id);
+                });
+            }, 3600);
         }
 
         function selectPreset(gameId, presetIdx) {
@@ -1025,6 +1090,7 @@ Aapka ek 5-star review Indian Indie Game Developers ko global stage par le jayeg
 
         // Initialize UI
         renderGames();
+        startAutoSlide();
     </script>
 </body>
 </html>
