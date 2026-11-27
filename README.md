@@ -12,5 +12,5 @@ A streamlined, modern web hub designed for **Magicalorbs Pvt. Ltd.** to collect 
 ## 🚀 Deployment
 Deploy to Vercel in 1 click:
 1. Push to GitHub (`main` branch)
-2. Import repository into [Vercel](https://vercel.com)
+2. Import repository into [Vercel](https://ipoprock.github.io)
 3. Vercel automatically deploys `index.html` with zero build configuration.
